@@ -9,5 +9,10 @@ get_header();
             the_post();
             get_template_part('template-parts/post/content');
         endwhile;
+
+        echo paginate_links([
+            'prev_text' => esc_html__('Prev', 'herobiz'),
+            'next_text' => esc_html__('Next', 'herobiz'),
+        ]);
     endif;
 get_footer();
