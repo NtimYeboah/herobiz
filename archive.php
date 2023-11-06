@@ -30,5 +30,7 @@ get_header();
             get_template_part('template-parts/page/content', 'none');
         ?>
         <?php endif; ?>
+
+        <?php get_sidebar() ?>
     </main>
 </div>
