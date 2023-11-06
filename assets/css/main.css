@@ -208,6 +208,7 @@
     padding: 15px 0;
     transition: all 0.5s;
     z-index: 997;
+    background-color: var(--color-white);
   }
   .header.sticked {
     background: var(--color-white);
@@ -227,6 +228,26 @@
     color: var(--color-primary);
     font-weight: 500;
   }
+
+  .menu-item-117 {
+    list-style: none;
+  }
+
+  .header-action-link > li > a {
+    font-size: 16px;
+    color: var(--color-white);
+    background: var(--color-primary);
+    padding: 10px 23px;
+    border-radius: 4px;
+    transition: 0.3s;
+    font-family: var(--font-secondary);
+  }
+
+  .header-action-link > li > a:focus:hover {
+    color: var(--color-white);
+    background: rgba(var(--color-primary-rgb), 0.85);
+  }
+
   .header .btn-getstarted, .header .btn-getstarted:focus {
     font-size: 16px;
     color: var(--color-white);

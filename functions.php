@@ -83,9 +83,13 @@ if (! function_exists('herobiz_setup')) {
         add_theme_support('post-formats', ['aside', 'gallery', 'link', 'image', 'quote', 'video', 'audio']);
 
         register_nav_menus([
-            'primary' => esc_html__('Primary', 'herobiz'),
+            'primary' => esc_html__('Primary Menu', 'herobiz'),
             'footer' => esc_html__('Footer Menu', 'herobiz'),
+            'header_action' => esc_html__('Header Action Menu', 'herobiz'),
         ]);
+
+        // Disable admin bar shown on top of side when in development
+        add_filter('show_admin_bar', '__return_false');
     }
 }
 add_action('after_setup_theme', 'herobiz_setup');
