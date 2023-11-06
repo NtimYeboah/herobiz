@@ -134,7 +134,11 @@ if (! function_exists('herobiz_public_scripts')) {
      * Enqueue public scripts and styles
      */
     function herobiz_public_scripts() {
+        wp_enqueue_style('default', get_theme_file_uri('/assets/css/default.css'), [], wp_rand(), 'all');
+        wp_enqueue_style('main', get_theme_file_uri('/assets/css/main.css'), [], wp_rand(), 'all');
 
+        // scripts
+        wp_enqueue_script('main', get_theme_file_uri('/assets/js/main.js'), ['jquery'], wp_rand(), true);
     }
 }
 add_action('wp_enqueue_scripts', 'herobiz_public_scripts');
