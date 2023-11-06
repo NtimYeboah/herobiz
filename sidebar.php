@@ -1,3 +1,9 @@
 <?php
+/**
+ * Template for sidebar.php
+ */
+?>
 
-echo 'From sidebar';
+<div class="sidebar">
+    <?php dynamic_sidebar('default-sidebar') ?>
+</div>
