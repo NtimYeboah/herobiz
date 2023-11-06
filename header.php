@@ -16,11 +16,20 @@
         <header id="header" class="header fixed-top" data-scrollto-offset="0">
             <div class="container-fluid d-flex align-items-center justify-content-between">
 
-            <a href="index.html" class="logo d-flex align-items-center scrollto me-auto me-lg-0">
-                <!-- Uncomment the line below if you also wish to use an image logo -->
-                <!-- <img src="assets/img/logo.png" alt=""> -->
-                <h1>HeroBiz<span>.</span></h1>
-            </a>
+            <?php
+                $custom_logo_id = get_theme_mod('custom_logo');
+                $logo = wp_get_attachment_image_src($custom_logo_id, 'full');
+                
+                if (has_custom_logo()) {
+                    printf(
+                        '<a href="%1$s" class="logo d-flex align-items-center scrollto me-auto me-lg-0"><img src="%2$s" alt=""></a>',
+                        esc_url(home_url()),
+                        esc_url($logo[0])
+                    );
+                } else {
+                    echo bloginfo('name');
+                }
+            ?>
 
             <nav id="navbar" class="navbar">
                 <ul>
