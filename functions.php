@@ -134,10 +134,23 @@ if (! function_exists('herobiz_public_scripts')) {
      * Enqueue public scripts and styles
      */
     function herobiz_public_scripts() {
-        wp_enqueue_style('default', get_theme_file_uri('/assets/css/default.css'), [], wp_rand(), 'all');
+        wp_enqueue_style('bootstrap', get_theme_file_uri('/assets/vendor/bootstrap/css/bootstrap.min.css'), [], wp_rand(), 'all');
+        wp_enqueue_style('bootstrap-icon', get_theme_file_uri('/assets/vendor/bootstrap-icons/bootstrap-icons.css'), [], wp_rand(), 'all');
+        wp_enqueue_style('aos', get_theme_file_uri('/assets/vendor/aos/aos.css'), [], wp_rand(), 'all');
+        wp_enqueue_style('glightbox', get_theme_file_uri('/assets/vendor/glightbox/css/glightbox.min.css'), [], wp_rand(), 'all');
+        wp_enqueue_style('swiper', get_theme_file_uri('/assets/vendor/swiper/swiper-bundle.min.css'), [], wp_rand(), 'all');
+
+        wp_enqueue_style('variable', get_theme_file_uri('/assets/css/variables.css'), [], wp_rand(), 'all');
         wp_enqueue_style('main', get_theme_file_uri('/assets/css/main.css'), [], wp_rand(), 'all');
 
         // scripts
+        wp_enqueue_script('bootstrap', get_theme_file_uri('/assets/vendor/bootstrap/js/bootstrap.bundle.min.js'), ['jquery'], wp_rand(), true);
+        wp_enqueue_script('aos', get_theme_file_uri('/assets/vendor/aos/aos.js'), ['jquery'], wp_rand(), true);
+        wp_enqueue_script('glightbox', get_theme_file_uri('assets/vendor/glightbox/js/glightbox.min.js'), ['jquery'], wp_rand(), true);
+        wp_enqueue_script('isotope', get_theme_file_uri('/assets/vendor/isotope-layout/isotope.pkgd.min.js"'), ['jquery'], wp_rand(), true);
+        wp_enqueue_script('swiper', get_theme_file_uri('/assets/vendor/swiper/swiper-bundle.min.js'), ['jquery'], wp_rand(), true);
+        wp_enqueue_script('validate', get_theme_file_uri('/assets/vendor/php-email-form/validate.js'), ['jquery'], wp_rand(), true);
+
         wp_enqueue_script('main', get_theme_file_uri('/assets/js/main.js'), ['jquery'], wp_rand(), true);
     }
 }
