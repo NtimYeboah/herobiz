@@ -155,11 +155,11 @@ if (is_home() || is_archive()): ?> <!-- Show excerpt in home or archive pages --
               <?php echo get_avatar(get_the_author_meta('ID')); ?>
               <div>
                 <h4><?php echo get_the_author_meta('display_name'); ?></h4>
-                <div class="social-links">
+                <!-- <div class="social-links">
                   <a href="https://twitters.com/#"><i class="bi bi-twitter"></i></a>
                   <a href="https://facebook.com/#"><i class="bi bi-facebook"></i></a>
                   <a href="https://instagram.com/#"><i class="biu bi-instagram"></i></a>
-                </div>
+                </div> -->
                 <p>
                     <?php echo get_the_author_meta('description'); ?>
                 </p>
@@ -293,7 +293,9 @@ if (is_home() || is_archive()): ?> <!-- Show excerpt in home or archive pages --
           </div>
 
           <!-- Sidebar starts -->
-          <?php get_sidebar(); ?>
+          <div class="col-lg-4">
+            <?php get_sidebar(); ?>
+          </div>
           <!-- Sidebar end -->
         </div>
 
