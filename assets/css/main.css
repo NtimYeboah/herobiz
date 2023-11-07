@@ -2135,7 +2135,16 @@
     border-radius: 4px;
     width: calc(100% - 40px);
   }
+  .blog .sidebar .search-form form input[type=search] {
+    border: 0;
+    padding: 4px;
+    border-radius: 4px;
+    width: calc(100% - 40px);
+  }
   .blog .sidebar .search-form form input[type=text]:focus {
+    outline: none;
+  }
+  .blog .sidebar .search-form form input[type=search]:focus {
     outline: none;
   }
   .blog .sidebar .search-form form button {
