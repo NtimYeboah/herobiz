@@ -1,6 +1,6 @@
 <?php
 /**
- * Templae part for displaying posts.
+ * Template part for displaying posts.
  */
 
 if (is_home() || is_archive()): ?> <!-- Show excerpt in home or archive pages -->
@@ -61,11 +61,11 @@ if (is_home() || is_archive()): ?> <!-- Show excerpt in home or archive pages --
       <div class="container">
 
         <div class="d-flex justify-content-between align-items-center">
-          <h2>Blog Details</h2>
+          <h2>Blog: <?php the_title(); ?></h2>
           <ol>
             <li><a href="index.html">Home</a></li>
             <li><a href="blog.html">Blog</a></li>
-            <li>Blog Details</li>
+            <li><?php the_title(); ?></li>
           </ol>
         </div>
 
