@@ -12,9 +12,9 @@ get_header();
                 get_template_part('template-parts/post/content');
             endwhile;
 
-            if (comments_open() || get_comments_number() > 0):
+            /* if (comments_open() || get_comments_number() > 0):
                 comments_template();
-            endif;
+            endif; */
         ?>
     </main>
     <?php get_sidebar() ?>
