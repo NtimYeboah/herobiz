@@ -171,7 +171,6 @@ if (is_home() || is_archive()): ?> <!-- Show excerpt in home or archive pages --
                 comments_template();
               endif;
             ?>
-
           </div>
 
           <!-- Sidebar starts -->

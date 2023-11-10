@@ -34,20 +34,29 @@ get_header();
                             the_post();
                             get_template_part('template-parts/post/content');
                         endwhile;
+
+                        $links = numeric_post_pagination();
                     ?>
+                    <?php if (count($links) > 0): ?>
+                    <div class="blog-pagination">
+                        <ul class="justify-content-center">
+                            <?php
+                                foreach ($links as $num => $meta) {
+                                    printf(
+                                        '<li class="%1$s"><a href="%2$s">%3$s</a></li>',
+                                        $meta['class'],
+                                        $meta['url'],
+                                        $num
+                                    );
+                                }
+                            ?>
+                        </ul>
+                    </div>
+                    <?php endif; ?>
                 </div><!-- End blog posts list -->
                 <?php else: ?>
                     <h1>No post available</h1>
                 <?php endif; ?>
-
-            <div class="blog-pagination">
-              <ul class="justify-content-center">
-                <li><a href="#">1</a></li>
-                <li class="active"><a href="#">2</a></li>
-                <li><a href="#">3</a></li>
-              </ul>
-            </div><!-- End blog pagination -->
-
           </div>
 
           <!-- Put sidebar here -->

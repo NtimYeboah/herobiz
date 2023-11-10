@@ -169,3 +169,62 @@ if (! function_exists('herobiz_admin_scripts')) {
     }
 }
 add_action('admin_enqueue_scripts', 'herobiz_admin_scripts');
+
+if (! function_exists('numeric_post_pagination')) {
+    function numeric_post_pagination() {
+        if (is_singular()) {
+            return;
+        }
+
+        global $wp_query;
+
+        $max_pages = intval($wp_query->max_num_pages);
+
+        // Stop execution if there's only 1 page
+        if ($max_pages <= 1) {
+            return;
+        }
+
+        // Get the paged query variable in the WP Query class
+        // This is 1, 2, 3, etc for each of the query
+        $paged = get_query_var('paged') ? absint(get_query_var('paged')) : 1;
+
+        $pagination_links = 2;
+
+        $left_guillemet = '&#171;';
+        $right_guillemet = '&#187;';
+
+        // Check to see what to add and remove
+        $links = [];
+
+        $page = intval(ceil($paged / $pagination_links));
+
+        $links[$left_guillemet] = ['url' => home_url(). '/page/'. $paged, 'class' => ''];
+
+        if (intval($page * 2) == $max_pages) {
+            $links[$left_guillemet] = ['url' => home_url(). '/page/'. $paged - 1, 'class' => ''];
+        }
+
+        if ($paged % 2 == 1) {
+            $links[(string)$paged] = ['url' => home_url(). '/page/'. $paged, 'class' => 'active'];
+            $links[(string)$paged + 1] = ['url' => home_url() . '/page/'. $paged + 1, 'class' => ''];
+            $links[$right_guillemet] = ['url' => home_url(). '/page/'. $paged + 2, 'class' => ''];
+        } else {
+            $links[(string)$paged - 1] = ['url' => home_url() . '/page/'. $paged - 1, 'class' => ''];
+            $links[(string)$paged] = ['url' => home_url(). '/page/'. $paged, 'class' => 'active'];
+            $links[$right_guillemet] = ['url' => home_url(). '/page/'. $paged + 1, 'class' => ''];
+        }
+
+        // First page
+        if (intval($page * 2) == 2) {
+            unset($links[$left_guillemet]);
+        }
+
+        // Last page
+        if (intval($page * 2) == $max_pages) {
+            unset($links[$right_guillemet]);
+        }
+
+        return $links;
+    }
+}
