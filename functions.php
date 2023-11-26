@@ -56,9 +56,7 @@ if (! function_exists('herobiz_setup')) {
         // Add theme support for selective refresh for widgets.
         add_theme_support('customize-selective-refresh-widgets');
         
-        /**
-         * Add support for core custom logo.
-         */
+        // Add support for core custom logo.
         add_theme_support('custom-logo', [
             'height' => 250,
             'width' => 250,
@@ -66,9 +64,8 @@ if (! function_exists('herobiz_setup')) {
             'flex-height' => true,
         ]);
 
-        /**
-         * Add support for Custom Page Header.
-         */
+        
+        // Add support for Custom Page Header.
         add_theme_support('custom-header', [
             'flex-width' => true,
             'width' => 1600,
@@ -77,18 +74,18 @@ if (! function_exists('herobiz_setup')) {
             'default-image'
         ]);
 
-        /**
-         * Add Post Type Support
-         */
+        
+        // Add Post Type Support
         add_theme_support('post-formats', ['aside', 'gallery', 'link', 'image', 'quote', 'video', 'audio']);
 
+        // Register menu bars
         register_nav_menus([
             'primary' => esc_html__('Primary Menu', 'herobiz'),
             'footer' => esc_html__('Footer Menu', 'herobiz'),
             'header_action' => esc_html__('Header Action Menu', 'herobiz'),
         ]);
 
-        // Disable admin bar shown on top of side when in development
+        // Disable admin bar shown on top of the page when in development
         add_filter('show_admin_bar', '__return_false');
     }
 }
@@ -171,6 +168,9 @@ if (! function_exists('herobiz_admin_scripts')) {
 add_action('admin_enqueue_scripts', 'herobiz_admin_scripts');
 
 if (! function_exists('numeric_post_pagination')) {
+    /**
+     * Custom numeric pagination
+     */
     function numeric_post_pagination() {
         if (is_singular()) {
             return;
